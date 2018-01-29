@@ -10,6 +10,10 @@ import markovify
 from gutenberg.acquire import load_etext
 from gutenberg.cleanup import strip_headers
 
+
+# This is an unused function to generate the top N words
+# Could use this to make a nice histogram
+# Method based on Think Python exercise
 def top_words(text, n):
         
     hist = dict()
@@ -32,7 +36,7 @@ def top_words(text, n):
     for word, count in t[:n]:
         print(word, count)
 
-
+# Here are some book IDs from Project Gutenberg
 # Orthodoxy 130
 # What's Wrong with the World 1717
 # Heretics 470
@@ -48,7 +52,7 @@ def top_words(text, n):
 books = [130, 1717, 470, 11505, 8092]
 text = ''
 
-print(f"Loading {len(books)} from Project Gutenberg...")
+print(f"Loading {len(books)} book(s) from Project Gutenberg...")
 for book in books:
     text = text + strip_headers(load_etext(book)).strip()
     print(f"\tBook loaded. Total source text length is now {len(text)}")
@@ -56,16 +60,19 @@ for book in books:
 
 print("Done.\n")
 
-text_model = markovify.Text(text)
+text_model = markovify.Text(text, state_size=3)
+  
 
-print('-'*80)  
+#for i in range(2):
+#    print(text_model.make_sentence())
 
-for i in range(2):
-    print(text_model.make_sentence())
+#print('-'*80)    
 
-print('-'*80)    
+for i in range(10):
 
-for i in range(1):
-    print(text_model.make_short_sentence(140))
-    
+    tweet = text_model.make_short_sentence(140, max_overlap_ratio=0.70)
+    if tweet is not None:
+        print('-'*80)  
+        print(tweet)
+
 print('-'*80)     

@@ -1,7 +1,7 @@
 # random-gutenberg
 Randomly generated sentences from Project Gutenberg texts.
 
-Given a list of Project Gutenberg book IDs, load the texts from the web, build Markov chains, and generate some random sentences.  I used this to produce some randomly generated G.K. Chesterton.  You also mix authors in the list because everyone needs some Pride and Prejudice mixed with Kama Sutra in their life. 
+Given a list of Project Gutenberg book IDs, load the texts from the web, build Markov chains, and generate some random sentences.  I used this to produce some randomly generated G.K. Chesterton.  You can also mix authors in the list because everyone needs some Pride and Prejudice mixed with Kama Sutra in their life. 
 
 Requires:
 * Gutenberg: https://pypi.python.org/pypi/Gutenberg
