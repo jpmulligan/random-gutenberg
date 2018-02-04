@@ -59,6 +59,8 @@ for book in books:
 #top_words(text, 10)
 
 print("Done.\n")
+print(len(text.split("\n")))
+
 
 text_model = markovify.Text(text, state_size=3)
   
